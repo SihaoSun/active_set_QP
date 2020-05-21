@@ -1,4 +1,15 @@
 function [x,y_state,iter,optimal] = QP_activeSet(H,c,A,b,x0,maxItr)
+% @ info: solve quadratic programming in the form of
+%           min 0.5*x'Hx + c'x
+%               st Ax <= b
+% @ input: H: N*N; c: N*1; A: m*N; b: m*1 matrix
+%          x0: initial guess, N*1
+%          maxItr: maximum num of iteration
+% @ output: x: optimized state
+%           y_state: indicating if x is on the boundary (1) or not (0)
+%           iter: num of iterations
+%           optimal: convergent(1) or not (0)
+%
 % This active set algorithm is developed based on the video
 % https://www.youtube.com/watch?v=HLq151AhMMY (35:00)
 % The constraint which is violated is added into the active set.
